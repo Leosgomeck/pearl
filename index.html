@@ -367,6 +367,24 @@ footer{background:#040812;border-top:1px solid var(--line);padding-block:50px 40
 .social{display:flex;gap:8px;justify-content:center}
 .social span{width:36px;height:36px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;color:var(--gold-hi);opacity:.6}
 .social svg{width:16px;height:16px;fill:currentColor}
+/* LOGBOOK */
+.logbook{background:linear-gradient(180deg,var(--ink),var(--navy) 60%,var(--ink))}
+.log-list{position:relative;display:grid;gap:clamp(28px,4vw,48px)}
+.log-list::before{content:"";position:absolute;top:0;bottom:0;inset-inline-start:50%;width:1px;background:linear-gradient(transparent,var(--line) 8%,var(--line) 92%,transparent)}
+.log{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center;position:relative}
+.log::after{content:"";position:absolute;inset-inline-start:calc(50% - 7px);top:50%;width:14px;height:14px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,#d9d4cc 50%,#8f8a86);box-shadow:0 0 0 5px var(--ink),0 0 0 6px var(--line),0 0 18px rgba(236,211,161,.4)}
+.log figure{margin:0;border-radius:22px;overflow:hidden;aspect-ratio:4/3;background:var(--navy-2)}
+.log img{width:100%;height:100%;object-fit:cover;display:block;transition:transform 1.2s var(--ease)}
+.log:hover img{transform:scale(1.05)}
+.log.alt figure{order:2}
+.log-body{display:grid;gap:10px;min-width:0}
+.log-when{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);font-weight:600}
+html[lang="ar"] .log-when{letter-spacing:0;font-size:.9rem}
+.log h3{font-size:var(--step-2)}
+.log p{color:var(--mist);max-width:46ch}
+.mentor .ph span{font-family:"Cormorant Garamond",serif;font-size:2rem;color:var(--gold-hi)}
+@media (max-width:820px){.log-list::before,.log::after{display:none}.log{grid-template-columns:1fr;gap:16px}.log.alt figure{order:0}}
+
 /* POSTERS */
 .posters{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:clamp(40px,5vw,60px)}
 .poster{display:grid;grid-template-columns:150px minmax(0,1fr);gap:22px;background:#fff;border-radius:22px;padding:20px;align-items:start;box-shadow:0 1px 0 #d9cfbb;transition:transform .5s var(--ease),box-shadow .5s}
@@ -462,6 +480,7 @@ html[lang="ar"] .poster .ev{letter-spacing:0;font-size:.85rem}
       <li><a href="#lectures" data-i18n="nav.lectures"></a></li>
       <li><a href="#classes" data-i18n="nav.classes"></a></li>
       <li><a href="#agenda" data-i18n="nav.agenda"></a></li>
+      <li><a href="#logbook" data-i18n="nav.logbook"></a></li>
       <li><a href="#team" data-i18n="nav.team"></a></li>
       <li><a href="#mentors" data-i18n="nav.mentors"></a></li>
       <li><a href="#studies" data-i18n="nav.studies"></a></li>
@@ -607,6 +626,18 @@ html[lang="ar"] .poster .ev{letter-spacing:0;font-size:.85rem}
   </div>
 </section>
 
+<section class="sec logbook" id="logbook">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow" data-i18n="lb.eyebrow"></span>
+      <h2 data-i18n-html="lb.title"></h2>
+      <p data-i18n="lb.p"></p>
+      <span class="sample" data-i18n="lb.pending"></span>
+    </div>
+    <div class="log-list" id="logList"></div>
+  </div>
+</section>
+
 <section class="sec team" id="team">
   <div class="team-bg" aria-hidden="true"><img src="img/horse.jpg" alt=""></div>
   <div class="wrap">
@@ -627,7 +658,6 @@ html[lang="ar"] .poster .ev{letter-spacing:0;font-size:.85rem}
       <span class="eyebrow" data-i18n="mt.eyebrow"></span>
       <h2 data-i18n-html="mt.title"></h2>
       <p data-i18n="mt.p"></p>
-      <span class="sample" data-i18n="mt.pending"></span>
     </div>
     <div class="mentor-grid" id="mentorGrid"></div>
   </div>
@@ -1155,6 +1185,58 @@ function renderV2(){
   $$(".member").forEach((el,i)=>{const m=T.team[i]; if(m.img){el.querySelector(".portrait").innerHTML=`<img src="${m.img}" alt="${esc(m.n)}">`;}});
 }
 
+/* v3: Logbook + sample mentors */
+const V3={
+en:{"nav.logbook":"Logbook","lb.eyebrow":"Logbook","lb.title":"Notes from <em>the road.</em>","lb.p":"Lectures, breeding seasons and laboratory days, recorded by the board as they happen.","lb.pending":"Dates and captions to be confirmed",
+ "logbook":[
+  {img:"lecture-abraa",d:"Jun 2026",w:"Indaiatuba, SP, Brazil",t:"ABRAA meeting",p:"Dr. Marcio Nunes lectures to Brazilian colleagues on stallion semen technology at the ABRAA meeting."},
+  {img:"lecture-gcc",d:"2025",w:"Gulf region",t:"Lecture for Gulf breeders",p:"A talk for horse and camel breeders on how reproductive technology supports breeding programs in the region."},
+  {img:"field-arabian",d:"Breeding season",w:"United Arab Emirates",t:"Collection day with Arabian stallions",p:"Semen collection and evaluation routine during the breeding season, from the phantom to the laboratory."},
+  {img:"lab-colleague",d:"Laboratory",w:"Reproduction laboratory",t:"Quality control in the lab",p:"Processing, extenders and quality checks: the part of the work that decides how a dose performs in the field."},
+  {img:"field-appaloosa",d:"On the farm",w:"Field visit",t:"Visiting a breeding farm",p:"Meeting the horses and the team behind each program before deciding on a protocol."}
+ ],
+ "mentors":[
+  {n:"Prof. Helena Vasconcelos",r:"Equine theriogenology · Example University",b:"Guided the board's first steps in mare reproduction and still reviews our hardest cases."},
+  {n:"Prof. Richard Hale",r:"Stallion andrology · Example Institute",b:"Reference in stallion fertility and semen cryopreservation; co-author on laboratory studies."},
+  {n:"Dr. Lucía Ferrer",r:"Embryo technologies · Example Clinic",b:"Pioneer in commercial embryo transfer programs and mentor in OPU and ICSI."},
+  {n:"Prof. Omar Al-Rashid",r:"Equine reproduction · Example College",b:"Long-time partner in the Gulf region, supporting field projects and teaching."}
+ ],"mt.sample":"Fictitious example"},
+es:{"nav.logbook":"Bitácora","lb.eyebrow":"Bitácora","lb.title":"Notas <em>del camino.</em>","lb.p":"Conferencias, temporadas reproductivas y días de laboratorio, registrados por el equipo a medida que suceden.","lb.pending":"Fechas y textos por confirmar",
+ "logbook":[
+  {img:"lecture-abraa",d:"jun 2026",w:"Indaiatuba, SP, Brasil",t:"Reunión ABRAA",p:"El Dr. Marcio Nunes presenta a colegas brasileños sobre tecnología de semen de semental en la reunión anual de ABRAA."},
+  {img:"lecture-gcc",d:"2025",w:"Región del Golfo",t:"Conferencia para criadores del Golfo",p:"Una charla para criadores de caballos y camellos sobre cómo la tecnología reproductiva apoya los programas de cría de la región."},
+  {img:"field-arabian",d:"Temporada reproductiva",w:"Emiratos Árabes Unidos",t:"Día de colecta con sementales árabes",p:"Rutina de colecta y evaluación de semen durante la temporada, del maniquí al laboratorio."},
+  {img:"lab-colleague",d:"Laboratorio",w:"Laboratorio de reproducción",t:"Control de calidad en el laboratorio",p:"Procesamiento, diluyentes y controles de calidad: la parte del trabajo que define cómo rinde una dosis en el campo."},
+  {img:"field-appaloosa",d:"En el haras",w:"Visita de campo",t:"Visita a un haras",p:"Conocer los caballos y el equipo detrás de cada programa antes de decidir un protocolo."}
+ ],
+ "mentors":[
+  {n:"Prof. Helena Vasconcelos",r:"Teriogenología equina · Universidad Ejemplo",b:"Guió los primeros pasos del equipo en reproducción de la yegua y aún revisa nuestros casos más difíciles."},
+  {n:"Prof. Richard Hale",r:"Andrología del semental · Instituto Ejemplo",b:"Referencia en fertilidad del semental y criopreservación; coautor de estudios de laboratorio."},
+  {n:"Dra. Lucía Ferrer",r:"Tecnologías embrionarias · Clínica Ejemplo",b:"Pionera en programas comerciales de transferencia de embriones y mentora en OPU e ICSI."},
+  {n:"Prof. Omar Al-Rashid",r:"Reproducción equina · Colegio Ejemplo",b:"Socio de larga data en la región del Golfo, apoyando proyectos de campo y docencia."}
+ ],"mt.sample":"Ejemplo ficticio"},
+ar:{"nav.logbook":"سجل الرحلات","lb.eyebrow":"سجل الرحلات","lb.title":"ملاحظات <em>من الطريق.</em>","lb.p":"محاضرات ومواسم تناسل وأيام في المختبر، يدوّنها المجلس أولًا بأول.","lb.pending":"التواريخ والنصوص قيد التأكيد",
+ "logbook":[
+  {img:"lecture-abraa",d:"يونيو 2026",w:"إنداياتوبا، البرازيل",t:"اجتماع ABRAA",p:"د. مارسيو نونيس يحاضر الزملاء البرازيليين حول تقنيات السائل المنوي للفحول في الاجتماع السنوي لـ ABRAA."},
+  {img:"lecture-gcc",d:"2025",w:"منطقة الخليج",t:"محاضرة لمربّي الخليج",p:"محاضرة لمربّي الخيول والإبل حول دور التقنيات التناسلية في دعم برامج التربية في المنطقة."},
+  {img:"field-arabian",d:"موسم التناسل",w:"الإمارات العربية المتحدة",t:"يوم جمع مع الفحول العربية",p:"روتين جمع السائل المنوي وتقييمه خلال الموسم، من الدمية إلى المختبر."},
+  {img:"lab-colleague",d:"المختبر",w:"مختبر التناسل",t:"مراقبة الجودة في المختبر",p:"المعالجة والمخففات وفحوص الجودة: الجزء الذي يحدد أداء الجرعة في الميدان."},
+  {img:"field-appaloosa",d:"في المزرعة",w:"زيارة ميدانية",t:"زيارة مزرعة خيول",p:"التعرّف على الخيول والفريق وراء كل برنامج قبل اختيار البروتوكول."}
+ ],
+ "mentors":[
+  {n:"أ.د. هيلينا فاسكونسيلوس",r:"علم تناسل الخيول · جامعة مثال",b:"وجّهت خطوات المجلس الأولى في تناسل الأفراس، وما زالت تراجع أصعب حالاتنا."},
+  {n:"أ.د. ريتشارد هيل",r:"أمراض ذكورة الفحول · معهد مثال",b:"مرجع في خصوبة الفحول وتجميد السائل المنوي، ومشارك في دراسات مخبرية."},
+  {n:"د. لوسيا فيرير",r:"تقنيات الأجنة · عيادة مثال",b:"رائدة في برامج نقل الأجنة التجارية ومرشدة في سحب البويضات والحقن المجهري."},
+  {n:"أ.د. عمر الراشد",r:"تناسل الخيول · كلية مثال",b:"شريك قديم في منطقة الخليج، يدعم المشاريع الميدانية والتدريس."}
+ ],"mt.sample":"مثال افتراضي"}
+};
+for(const l in V3) Object.assign(I18N[l],V3[l]);
+function renderV3(){
+  const T=I18N[lang];
+  $("#logList").innerHTML=T.logbook.map((e,i)=>`<article class="log${i%2?" alt":""}"><figure><img src="img/${e.img}.jpg" alt="${esc(e.t)}" loading="lazy"></figure><div class="log-body"><span class="log-when">${esc(e.d)} · ${esc(e.w)}</span><h3>${esc(e.t)}</h3><p>${esc(e.p)}</p></div></article>`).join("");
+  $("#mentorGrid").innerHTML=T.mentors.map(m=>{const ini=m.n.replace(/^(Prof\.|Dra?\.|أ\.د\.|د\.)\s*/,"").split(" ").map(s=>s[0]).slice(0,2).join("");return `<article class="mentor"><div class="ph"><span>${esc(ini)}</span></div><div><h3>${esc(m.n)}</h3><div class="cred" style="color:var(--gold);font-size:.82rem;font-weight:600">${esc(m.r)}</div></div><p>${esc(m.b)}</p><div class="social">${SOCIAL_ICONS.map(s=>`<span>${s}</span>`).join("")}</div><span class="sample" style="font-size:.64rem">${esc(T["mt.sample"])}</span></article>`}).join("");
+}
+
 const DIAL = {AE:"971",AR:"54",AT:"43",AU:"61",BE:"32",BH:"973",BO:"591",BR:"55",CA:"1",CH:"41",CL:"56",CN:"86",CO:"57",CR:"506",CZ:"420",DE:"49",DK:"45",DO:"1",DZ:"213",EC:"593",EG:"20",ES:"34",FI:"358",FR:"33",GB:"44",GR:"30",GT:"502",HK:"852",HN:"504",HU:"36",IE:"353",IL:"972",IN:"91",IQ:"964",IT:"39",JO:"962",JP:"81",KR:"82",KW:"965",LB:"961",LY:"218",MA:"212",MX:"52",MY:"60",NI:"505",NL:"31",NO:"47",NZ:"64",OM:"968",PA:"507",PE:"51",PL:"48",PR:"1",PT:"351",PY:"595",QA:"974",RO:"40",SA:"966",SE:"46",SG:"65",SV:"503",TN:"216",TR:"90",US:"1",UY:"598",VE:"58",ZA:"27"};
 const INTEREST_KEYS=["session","mare","stallion","biotech","science","career","lecture","classes","partner"];
 const ARROW='<svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 10h12M11 5l5 5-5 5"/></svg>';
@@ -1221,9 +1303,10 @@ function render(){
     <div class="body"><h3>${esc(a.t)}</h3><p>${esc(a.p)}</p><div class="foot"><span>${a.r} ${esc(T.read)}</span><span>${esc(T.soon)}</span></div></div></article>`).join("");
   $$(".art canvas").forEach(drawCover);
 
-  $("#footLinks").innerHTML=["about","lectures","classes","agenda","team","mentors","studies","articles","contact"].map(k=>`<li><a href="#${k}">${esc(T["nav."+k])}</a></li>`).join("");
+  $("#footLinks").innerHTML=["about","lectures","classes","agenda","logbook","team","mentors","studies","articles","contact"].map(k=>`<li><a href="#${k}">${esc(T["nav."+k])}</a></li>`).join("");
 
   renderV2();
+  renderV3();
   buildSelects();
   bindInterestLinks();
   if($("#form .done")) showDone();
@@ -1316,7 +1399,7 @@ const reduce=matchMedia("(prefers-reduced-motion: reduce)").matches;
 function setupReveal(){
   if(reduce) return;
   const io=new IntersectionObserver(es=>es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("revealed"); en.target.classList.remove("pending"); io.unobserve(en.target);} }),{rootMargin:"0px 0px -8% 0px"});
-  $$(".sec-head, .about-text, .mv-card, .lec-list, .steps, .topics, .formats, .events, .team-grid, .studies .grid, .sci, .art-grid, .contact-side, form, .stats-grid, .gallery, .mentor-grid, .posters").forEach((el,i)=>{
+  $$(".sec-head, .about-text, .mv-card, .lec-list, .steps, .topics, .formats, .events, .team-grid, .studies .grid, .sci, .art-grid, .contact-side, form, .stats-grid, .gallery, .mentor-grid, .posters, .log").forEach((el,i)=>{
     if(el.getBoundingClientRect().top>innerHeight*0.95){ el.classList.add("pending"); io.observe(el); }
   });
 }
