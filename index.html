@@ -500,6 +500,13 @@ html[lang="ar"] .poster .ev{letter-spacing:0;font-size:.85rem}
   html{scroll-behavior:auto}
   .pending{opacity:1;transform:none}
 }
+
+.team-grid{max-width:980px;margin-inline:auto}@media (min-width:821px){.team-grid{grid-template-columns:repeat(2,1fr)}}
+.li-link{display:inline-flex;align-items:center;gap:8px;font-size:.8rem;font-weight:600;color:var(--gold);text-decoration:none;width:fit-content}
+.li-link svg{width:16px;height:16px;fill:currentColor}.li-link:hover span{text-decoration:underline}
+.art-link{color:inherit;font-weight:600;text-decoration:none}.art-link:hover{text-decoration:underline}
+.mentor.collab{border-color:var(--gold)}.mentor.collab .ph{background:linear-gradient(135deg,#c9a45c,#ecd3a1);color:var(--ink)}
+.collab-tag{border-style:solid!important;color:var(--gold)}.mentor.collab .ph span{color:#0b1530!important;-webkit-text-fill-color:#0b1530;background:none!important}
 </style>
 </head>
 <body>
@@ -1271,6 +1278,206 @@ ar:{"nav.logbook":"سجل الرحلات","lb.eyebrow":"سجل الرحلات","
  ],"mt.sample":"مثال افتراضي"}
 };
 for(const l in V3) Object.assign(I18N[l],V3[l]);
+
+/* v4: real content from the advisors' LinkedIn; Dr. Bruno Trevisan becomes a collaborating professor */
+const LI_MN="https://www.linkedin.com/in/marciomnunes/", LI_MM="https://www.linkedin.com/in/maria-luiza-munhoz-b1aa5a323/";
+const V4={
+en:{
+ "hero.motto":"<b>Two experts. One mission.</b><br>Unlimited possibilities.",
+ "hero.lead":"Personalized online advisory in equine reproduction, led by two veterinarians who combine science, field experience and work in more than 15 countries.",
+ "tm.title":"Two careers. <em>One advisory board.</em>",
+ "tm.p":"Built across Brazil, the United States and the Middle East, in commercial breeding, industry and research, with male and female professional perspectives.",
+ "marquee":["Embryo transfer","Stallion andrology","Microfluidic sperm selection","Semen cryopreservation","CASA interpretation","Recipient mares","Frozen semen quality control","Research planning","Career development"],
+ "formats":[
+  {d:"30",h:"Focus session",p:"One precise question or case, with the advisor best suited to it."},
+  {d:"60",h:"Case deep dive",p:"Time to review your material in detail and build a plan together.",f:1},
+  {d:"90",h:"Full board",p:"Both advisors on complex cases, programs or laboratory projects."}
+ ],
+ "team":[
+  {n:"Dr. Marcio Nunes",i:"MN",img:"img/marcio.jpg",li:LI_MN,c:"DVM (UFV), MSc · Theriogenologist",y:"25",p:"More than 20 years in equine reproduction. Led embryo transfer programs on 33 farms in Brazil (2001–2011), was Equine Technical Consultant at Minitube Brazil for 11 years and, since 2022, is Large Animals Technical Manager at German Standard Group in Dubai, supporting reproductive programs across the Middle East and North Africa. Co-founder of the Brazilian Animal Andrology Association (ABRAA).",t:["Stallion andrology","Cryopreservation","Microfluidics","Evidence-based protocols"]},
+  {n:"Dr. Maria Luiza Munhoz",i:"MM",img:"img/munhoz.jpg",li:LI_MM,c:"DVM, Equine Reproduction · PUCPR",y:"10+",p:"Reproduction veterinarian at MK Arabians Stud in the UAE since 2021, running embryo transfer and breeding programs for Arabian horses, with experience in Brazil, China and the UAE. Speaker at the Saudi Vet Congress, the GSG Dubai Vet Congress and IMAR 2026, and co-instructor of the Embryo Transfer course at Southern Illinois University (USA).",t:["Embryo transfer","Recipient mares","Arabian horses","Semen quality control"]}
+ ],
+ "events":[
+  {d:"—",m:"2027",t:"Annual PEARL Symposium",w:"Venue and date to be announced",by:"PEARL advisory board",k:"next"},
+  {d:"",m:"Nov 2026",t:"7th GSG Qatar Meeting: equine and camel programs",w:"Doha, Qatar",by:"Dr. Marcio Nunes (organizer)",k:"past"},
+  {d:"",m:"Oct 2026",t:"1st IMAR, International Meeting of Animal Reproduction: equine panel",w:"UFV, Viçosa, Brazil",by:"Dr. Marcio Nunes (chair) and Dr. Maria Luiza Munhoz",k:"past"},
+  {d:"15–16",m:"Oct 2026",t:"2nd European Symposium on Equine Reproduction (ESER)",w:"Bruges, Belgium",by:"Dr. Marcio Nunes and Dr. Maria Luiza Munhoz",k:"past"},
+  {d:"10",m:"Oct 2026",t:"2nd Saudi Vet Congress: “ET recipient mare challenges in the Middle East”",w:"Riyadh, Saudi Arabia",by:"Dr. Maria Luiza Munhoz",k:"past"},
+  {d:"",m:"2026",t:"Equine Embryo Transfer course · ETRU, Southern Illinois University",w:"Carbondale, Illinois, USA",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"22–26",m:"Jun 2026",t:"20th International Congress on Animal Reproduction (ICAR): two posters",w:"Obihiro, Japan",by:"Nunes, Munhoz et al.",k:"past"},
+  {d:"4–6",m:"Jun 2026",t:"10th ABRAA meeting: two lectures and three posters",w:"Indaiatuba, SP, Brazil",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"",m:"2026",t:"GSG Dubai Vet Congress: equine embryo transfer programs",w:"Dubai, UAE",by:"Dr. Maria Luiza Munhoz",k:"past"},
+  {d:"27",m:"Nov 2025",t:"Webinar: embryo recovery in mare embryo transfer programs · UVAS",w:"Online",by:"Dr. Maria Luiza Munhoz",k:"past"},
+  {d:"22",m:"Nov 2025",t:"3rd GSG Egypt Reproduction Symposium",w:"Egypt",by:"Dr. Marcio Nunes (organizer)",k:"past"},
+  {d:"13",m:"Oct 2025",t:"Webinar: prediction and induction of ovulation in mares · UVAS",w:"Online",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"12–14",m:"Feb 2025",t:"8th International Symposium on Stallion Reproduction (ISSR): poster",w:"Córdoba, Spain",by:"Nunes, Munhoz et al.",k:"past"},
+  {d:"10–14",m:"Jul 2023",t:"XIII International Symposium on Equine Reproduction (ISER): poster",w:"Foz do Iguaçu, PR, Brazil",by:"Nunes, Munhoz et al.",k:"past"}
+ ],
+ "lb.p":"Congresses, courses and visits around the world, as the advisors share them on LinkedIn.",
+ "logbook":[
+  {img:"log-imar",d:"Oct 2026",w:"Viçosa, Brazil",t:"IMAR 2026: the equine panel",p:"Both advisors spoke on the equine panel of the first International Meeting of Animal Reproduction at the Federal University of Viçosa, alongside Tom Stout, Carolina Herrera, Eduardo Gastal, Ahmed Tibary and others. Dr. Marcio chaired the equine program."},
+  {img:"log-ufv",d:"Oct 2026",w:"Viçosa, Brazil",t:"Back where it all began",p:"Thirty years after starting veterinary school at UFV, Dr. Marcio returned as an invited speaker, teaching equine folliculogenesis to prepare residents for the Doppler ultrasonography session."},
+  {img:"log-eser",d:"15–16 Oct 2026",w:"Bruges, Belgium",t:"ESER 2026",p:"The European Symposium on Equine Reproduction: a week of science, networking and learning directly from the researchers behind the books and papers."},
+  {img:"log-saudi",d:"10 Oct 2026",w:"Riyadh, Saudi Arabia",t:"Saudi Vet Congress",p:"Dr. Maria Luiza Munhoz spoke on the challenges of recipient mares in embryo transfer programs in the Middle East."},
+  {img:"log-icar",d:"Jun 2026",w:"Obihiro, Japan",t:"Two posters at ICAR 2026",p:"Microfluidic sperm selection reduced bacterial load in stallion semen and preserved motility in urine-contaminated chilled doses. Field work carried out with Albaydaa Equine Hospital, Egypt."},
+  {img:"log-dubai",d:"2026",w:"Dubai, UAE",t:"GSG Dubai Vet Congress",p:"Dr. Maria Luiza Munhoz shared the day-to-day of a commercial equine embryo transfer program."},
+  {img:"log-siu",d:"2025",w:"Carbondale, Illinois, USA",t:"Teaching embryo transfer at SIU",p:"The advisors co-taught the Embryo Transfer course at Southern Illinois University with Prof. Eduardo Gastal."},
+  {img:"log-sbs",d:"2025",w:"USA",t:"A day at Select Breeders Services",p:"A visit to one of the world's largest producers of frozen stallion semen, following the freezing routine with Paul Loomis, Dr. David Scofield and the SBS team."}
+ ],
+ "studies":[
+  {h:"Microfluidic sperm selection",p:"ICAR 2026: processing cut bacterial load from 5.4×10³ to 1.5×10³ CFU/mL and kept motility higher after 24 h at 5 °C, washed or unwashed stallions.",l:"Nunes, Munhoz et al."},
+  {h:"Urine-contaminated semen",p:"ICAR 2026: with 33% urine, untreated samples fell to 0.4% progressive motility in 12 h; microfluidic-processed samples kept 23.5%.",l:"Munhoz, Nunes et al."},
+  {h:"Extenders & sperm selection",p:"Review article: Semen Extenders and Sperm Selection Techniques in Stallions. Rev Bras Reprod Anim 50(1):58–65, 2026.",l:"Nunes, Munhoz, Carneiro"},
+  {h:"Individual freezing protocols",p:"Centrifugation medium, freezing extender and curve tested stallion by stallion instead of one average protocol.",l:"Dr. Marcio Nunes"},
+  {h:"Embryo transfer & recipients",p:"Embryo recovery parameters, recipient selection and on-farm progesterone testing.",l:"Dr. Maria Luiza Munhoz"},
+  {h:"Folliculogenesis & ovulation",p:"Prediction and induction of ovulation and Doppler ultrasonography of the mare's follicles.",l:"Dr. Marcio Nunes"}
+ ],
+ "poster3":{img:"img/poster-icar.jpg",ev:"20th ICAR · Obihiro, Japan, 2026",t:"Microfluidic sperm selection in stallion semen: bacterial contamination and urine contamination",a:"Nunes MM, Munhoz ML, Omar Adel I, De Sobral GG, Morrell JM, Carneiro GF",k:"Bacterial load 5.4×10³ → 1.5×10³ CFU/mL; progressive motility 23.5% vs 0.4% after 12 h with urine."},
+ "ar.p":"Practical notes the advisors publish for colleagues on LinkedIn.",
+ "soon":"Read on LinkedIn",
+ "arts":[
+  {c:"Stallions",t:"Individual stallion responses to semen freezing protocols",p:"If 60% of stallions do best with each of three steps, only 21.6% fit all three. Why the protocol has to be built stallion by stallion.",r:4,u:LI_MN},
+  {c:"Frozen semen",t:"Approving a frozen batch is not just checking post-thaw motility",p:"Two extenders, the same motility, very different bacterial growth: why every batch needs a culture.",r:4,u:LI_MM},
+  {c:"Laboratory",t:"Why dilute the sample before CASA analysis?",p:"Below 50 million sperm/mL the system sees each cell. Above it, concentration is underestimated and fewer straws are produced.",r:3,u:LI_MN}
+ ],
+ "interests":{session:"Private session / case discussion",mare:"Mare reproduction",stallion:"Stallion reproduction",biotech:"Reproductive biotechnology",science:"Scientific support",career:"Career development",lecture:"Invite a lecture",classes:"Classes & masterclasses",partner:"Partnership or sponsorship"},
+ "collab":{n:"Dr. Bruno Trevisan",r:"Collaborating professor",b:"OPU and assisted reproductive technologies, advanced mare reproduction and university teaching."},
+ "li":"LinkedIn"
+},
+es:{
+ "hero.motto":"<b>Dos expertos. Una misión.</b><br>Posibilidades ilimitadas.",
+ "hero.lead":"Asesoría personalizada en línea en reproducción equina, dirigida por dos veterinarios que combinan ciencia, experiencia de campo y trabajo en más de 15 países.",
+ "tm.title":"Dos trayectorias. <em>Un consejo asesor.</em>",
+ "tm.p":"Construidas entre Brasil, Estados Unidos y Oriente Medio, en criaderos comerciales, industria e investigación, con perspectivas profesionales masculina y femenina.",
+ "marquee":["Transferencia de embriones","Andrología del semental","Selección espermática por microfluídica","Criopreservación de semen","Interpretación CASA","Yeguas receptoras","Control de calidad del semen congelado","Planificación de investigación","Desarrollo profesional"],
+ "formats":[
+  {d:"30",h:"Sesión enfocada",p:"Una pregunta o caso puntual, con el asesor más indicado."},
+  {d:"60",h:"Caso en profundidad",p:"Tiempo para revisar su material en detalle y construir un plan juntos.",f:1},
+  {d:"90",h:"Equipo completo",p:"Los dos asesores en casos complejos, programas o proyectos de laboratorio."}
+ ],
+ "team":[
+  {n:"Dr. Marcio Nunes",i:"MN",img:"img/marcio.jpg",li:LI_MN,c:"Médico veterinario (UFV), MSc · Teriogenólogo",y:"25",p:"Más de 20 años en reproducción equina. Dirigió programas de transferencia de embriones en 33 haras de Brasil (2001–2011), fue consultor técnico equino de Minitube Brasil durante 11 años y, desde 2022, es gerente técnico de grandes animales de German Standard Group en Dubái, apoyando programas reproductivos en Oriente Medio y el norte de África. Cofundador de la Asociación Brasileña de Andrología Animal (ABRAA).",t:["Andrología del semental","Criopreservación","Microfluídica","Protocolos basados en evidencia"]},
+  {n:"Dra. Maria Luiza Munhoz",i:"MM",img:"img/munhoz.jpg",li:LI_MM,c:"Médica veterinaria, reproducción equina · PUCPR",y:"10+",p:"Veterinaria de reproducción en MK Arabians Stud, en los Emiratos Árabes Unidos, desde 2021, a cargo de programas de transferencia de embriones y reproducción de caballos árabes, con experiencia en Brasil, China y los EAU. Conferencista en el Saudi Vet Congress, el GSG Dubai Vet Congress e IMAR 2026, y coinstructora del curso de Transferencia de Embriones de la Southern Illinois University (EE. UU.).",t:["Transferencia de embriones","Yeguas receptoras","Caballos árabes","Calidad del semen"]}
+ ],
+ "events":[
+  {d:"—",m:"2027",t:"Simposio anual PEARL",w:"Sede y fecha por anunciar",by:"Consejo asesor PEARL",k:"next"},
+  {d:"",m:"nov 2026",t:"7.º Encuentro GSG Qatar: programas equinos y de camélidos",w:"Doha, Catar",by:"Dr. Marcio Nunes (organizador)",k:"past"},
+  {d:"",m:"oct 2026",t:"1.º IMAR, Encuentro Internacional de Reproducción Animal: panel equino",w:"UFV, Viçosa, Brasil",by:"Dr. Marcio Nunes (coordinador) y Dra. Maria Luiza Munhoz",k:"past"},
+  {d:"15–16",m:"oct 2026",t:"2.º Simposio Europeo de Reproducción Equina (ESER)",w:"Brujas, Bélgica",by:"Dr. Marcio Nunes y Dra. Maria Luiza Munhoz",k:"past"},
+  {d:"10",m:"oct 2026",t:"2.º Saudi Vet Congress: “Desafíos de la yegua receptora en Oriente Medio”",w:"Riad, Arabia Saudita",by:"Dra. Maria Luiza Munhoz",k:"past"},
+  {d:"",m:"2026",t:"Curso de Transferencia de Embriones Equinos · ETRU, Southern Illinois University",w:"Carbondale, Illinois, EE. UU.",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"22–26",m:"jun 2026",t:"20.º Congreso Internacional de Reproducción Animal (ICAR): dos pósteres",w:"Obihiro, Japón",by:"Nunes, Munhoz et al.",k:"past"},
+  {d:"4–6",m:"jun 2026",t:"10.º Encuentro ABRAA: dos conferencias y tres pósteres",w:"Indaiatuba, SP, Brasil",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"",m:"2026",t:"GSG Dubai Vet Congress: programas de transferencia de embriones equinos",w:"Dubái, EAU",by:"Dra. Maria Luiza Munhoz",k:"past"},
+  {d:"27",m:"nov 2025",t:"Webinar: recuperación embrionaria en programas de transferencia · UVAS",w:"En línea",by:"Dra. Maria Luiza Munhoz",k:"past"},
+  {d:"22",m:"nov 2025",t:"3.º Simposio de Reproducción GSG Egipto",w:"Egipto",by:"Dr. Marcio Nunes (organizador)",k:"past"},
+  {d:"13",m:"oct 2025",t:"Webinar: predicción e inducción de la ovulación en yeguas · UVAS",w:"En línea",by:"Dr. Marcio Nunes",k:"past"},
+  {d:"12–14",m:"feb 2025",t:"8.º Simposio Internacional de Reproducción del Semental (ISSR): póster",w:"Córdoba, España",by:"Nunes, Munhoz et al.",k:"past"},
+  {d:"10–14",m:"jul 2023",t:"XIII Simposio Internacional de Reproducción Equina (ISER): póster",w:"Foz do Iguaçu, PR, Brasil",by:"Nunes, Munhoz et al.",k:"past"}
+ ],
+ "lb.p":"Congresos, cursos y visitas por el mundo, tal como los asesores los comparten en LinkedIn.",
+ "logbook":[
+  {img:"log-imar",d:"oct 2026",w:"Viçosa, Brasil",t:"IMAR 2026: el panel equino",p:"Ambos asesores participaron como conferencistas en el panel equino del primer Encuentro Internacional de Reproducción Animal de la Universidad Federal de Viçosa, junto a Tom Stout, Carolina Herrera, Eduardo Gastal, Ahmed Tibary y otros. El Dr. Marcio coordinó el programa equino."},
+  {img:"log-ufv",d:"oct 2026",w:"Viçosa, Brasil",t:"De vuelta donde todo empezó",p:"Treinta años después de ingresar a Veterinaria en la UFV, el Dr. Marcio volvió como conferencista invitado y enseñó foliculogénesis equina a los residentes antes de la sesión de ultrasonografía Doppler."},
+  {img:"log-eser",d:"15–16 oct 2026",w:"Brujas, Bélgica",t:"ESER 2026",p:"El Simposio Europeo de Reproducción Equina: una semana de ciencia, contactos y aprendizaje directo con los autores de los libros y artículos."},
+  {img:"log-saudi",d:"10 oct 2026",w:"Riad, Arabia Saudita",t:"Saudi Vet Congress",p:"La Dra. Maria Luiza Munhoz habló sobre los desafíos de la yegua receptora en los programas de transferencia de embriones de Oriente Medio."},
+  {img:"log-icar",d:"jun 2026",w:"Obihiro, Japón",t:"Dos pósteres en ICAR 2026",p:"La selección espermática por microfluídica redujo la carga bacteriana del semen y preservó la motilidad en dosis refrigeradas contaminadas con orina. Trabajo de campo con el Albaydaa Equine Hospital, Egipto."},
+  {img:"log-dubai",d:"2026",w:"Dubái, EAU",t:"GSG Dubai Vet Congress",p:"La Dra. Maria Luiza Munhoz compartió el día a día de un programa comercial de transferencia de embriones equinos."},
+  {img:"log-siu",d:"2025",w:"Carbondale, Illinois, EE. UU.",t:"Enseñando transferencia de embriones en SIU",p:"Los asesores dictaron juntos el curso de Transferencia de Embriones de la Southern Illinois University con el Prof. Eduardo Gastal."},
+  {img:"log-sbs",d:"2025",w:"EE. UU.",t:"Un día en Select Breeders Services",p:"Visita a uno de los mayores productores de semen equino congelado del mundo, siguiendo la rutina de congelación con Paul Loomis, el Dr. David Scofield y el equipo de SBS."}
+ ],
+ "studies":[
+  {h:"Selección espermática por microfluídica",p:"ICAR 2026: el procesamiento redujo la carga bacteriana de 5,4×10³ a 1,5×10³ UFC/mL y mantuvo mayor motilidad tras 24 h a 5 °C, con o sin lavado del semental.",l:"Nunes, Munhoz et al."},
+  {h:"Semen contaminado con orina",p:"ICAR 2026: con 33 % de orina, las muestras sin tratar cayeron a 0,4 % de motilidad progresiva en 12 h; las procesadas mantuvieron 23,5 %.",l:"Munhoz, Nunes et al."},
+  {h:"Diluyentes y selección espermática",p:"Artículo de revisión: Semen Extenders and Sperm Selection Techniques in Stallions. Rev Bras Reprod Anim 50(1):58–65, 2026.",l:"Nunes, Munhoz, Carneiro"},
+  {h:"Protocolos de congelación individuales",p:"Medio de centrifugación, diluyente y curva de congelación probados semental por semental, en lugar de un protocolo promedio.",l:"Dr. Marcio Nunes"},
+  {h:"Transferencia de embriones y receptoras",p:"Parámetros de recuperación embrionaria, selección de receptoras y medición de progesterona en el haras.",l:"Dra. Maria Luiza Munhoz"},
+  {h:"Foliculogénesis y ovulación",p:"Predicción e inducción de la ovulación y ultrasonografía Doppler de los folículos de la yegua.",l:"Dr. Marcio Nunes"}
+ ],
+ "poster3":{img:"img/poster-icar.jpg",ev:"20.º ICAR · Obihiro, Japón, 2026",t:"Selección espermática por microfluídica en semen equino: contaminación bacteriana y por orina",a:"Nunes MM, Munhoz ML, Omar Adel I, De Sobral GG, Morrell JM, Carneiro GF",k:"Carga bacteriana 5,4×10³ → 1,5×10³ UFC/mL; motilidad progresiva 23,5 % vs 0,4 % tras 12 h con orina."},
+ "ar.p":"Notas prácticas que los asesores publican para colegas en LinkedIn.",
+ "soon":"Leer en LinkedIn",
+ "arts":[
+  {c:"Sementales",t:"Respuestas individuales del semental a los protocolos de congelación",p:"Si el 60 % de los sementales responde mejor en cada uno de tres pasos, solo el 21,6 % encaja en los tres. Por qué el protocolo se construye semental por semental.",r:4,u:LI_MN},
+  {c:"Semen congelado",t:"Aprobar un lote congelado no es solo medir la motilidad post-descongelación",p:"Dos diluyentes, la misma motilidad y un crecimiento bacteriano muy distinto: por qué cada lote necesita un cultivo.",r:4,u:LI_MM},
+  {c:"Laboratorio",t:"¿Por qué diluir la muestra antes del análisis CASA?",p:"Por debajo de 50 millones de espermatozoides/mL el sistema ve cada célula. Por encima, la concentración se subestima y se producen menos pajuelas.",r:3,u:LI_MN}
+ ],
+ "interests":{session:"Sesión privada / discusión de casos",mare:"Reproducción de la yegua",stallion:"Reproducción del semental",biotech:"Biotecnología reproductiva",science:"Apoyo científico",career:"Desarrollo profesional",lecture:"Invitar a una conferencia",classes:"Clases y clases magistrales",partner:"Alianza o patrocinio"},
+ "collab":{n:"Dr. Bruno Trevisan",r:"Profesor colaborador",b:"OPU y tecnologías de reproducción asistida, reproducción avanzada de la yegua y docencia universitaria."},
+ "li":"LinkedIn"
+},
+ar:{
+ "hero.motto":"<b>خبيران. مهمة واحدة.</b><br>إمكانات بلا حدود.",
+ "hero.lead":"استشارات شخصية عبر الإنترنت في تناسل الخيول، يقدّمها طبيبان بيطريان يجمعان بين العلم والخبرة الميدانية والعمل في أكثر من 15 دولة.",
+ "tm.title":"مسيرتان. <em>مجلس استشاري واحد.</em>",
+ "tm.p":"مسيرتان بُنيتا بين البرازيل والولايات المتحدة والشرق الأوسط، في مزارع الإنتاج التجاري والصناعة والبحث العلمي، بمنظورين مهنيين رجالي ونسائي.",
+ "marquee":["نقل الأجنة","طب ذكور الخيول","انتقاء الحيوانات المنوية بالموائع الدقيقة","تجميد السائل المنوي","تحليل CASA","الأفراس المستقبِلة","مراقبة جودة السائل المنوي المجمّد","التخطيط البحثي","التطوير المهني"],
+ "formats":[
+  {d:"30",h:"جلسة مركّزة",p:"سؤال أو حالة محددة، مع المستشار الأنسب لها."},
+  {d:"60",h:"دراسة حالة معمّقة",p:"وقت كافٍ لمراجعة موادكم بالتفصيل ووضع خطة معًا.",f:1},
+  {d:"90",h:"المجلس كاملًا",p:"المستشاران معًا للحالات المعقدة أو البرامج أو مشاريع المختبرات."}
+ ],
+ "team":[
+  {n:"د. مارسيو نونيز",i:"MN",img:"img/marcio.jpg",li:LI_MN,c:"طبيب بيطري (UFV)، ماجستير · اختصاصي تناسل",y:"25",p:"أكثر من 20 عامًا في تناسل الخيول. أدار برامج نقل الأجنة في 33 مزرعة في البرازيل (2001–2011)، وعمل مستشارًا فنيًا للخيول في شركة Minitube البرازيل لمدة 11 عامًا، ومنذ 2022 يشغل منصب المدير الفني للحيوانات الكبيرة في German Standard Group في دبي، داعمًا برامج التناسل في الشرق الأوسط وشمال أفريقيا. وهو من مؤسسي الجمعية البرازيلية لطب ذكور الحيوانات (ABRAA).",t:["طب ذكور الخيول","التجميد","الموائع الدقيقة","بروتوكولات مبنية على الدليل"]},
+  {n:"د. ماريا لويزا مونيوز",i:"MM",img:"img/munhoz.jpg",li:LI_MM,c:"طبيبة بيطرية، تناسل الخيول · PUCPR",y:"10+",p:"طبيبة تناسل في MK Arabians Stud في الإمارات منذ 2021، تدير برامج نقل الأجنة والتناسل للخيول العربية، ولديها خبرة في البرازيل والصين والإمارات. متحدثة في Saudi Vet Congress وGSG Dubai Vet Congress وIMAR 2026، ومدرّسة مشاركة في دورة نقل الأجنة في جامعة Southern Illinois بالولايات المتحدة.",t:["نقل الأجنة","الأفراس المستقبِلة","الخيول العربية","جودة السائل المنوي"]}
+ ],
+ "events":[
+  {d:"—",m:"2027",t:"ملتقى PEARL السنوي",w:"المكان والموعد يُعلنان لاحقًا",by:"المجلس الاستشاري لـ PEARL",k:"next"},
+  {d:"",m:"نوفمبر 2026",t:"ملتقى GSG قطر السابع: برامج الخيول والإبل",w:"الدوحة، قطر",by:"د. مارسيو نونيز (منظّم)",k:"past"},
+  {d:"",m:"أكتوبر 2026",t:"الملتقى الدولي الأول لتناسل الحيوان IMAR: محور الخيول",w:"جامعة فيسوزا UFV، البرازيل",by:"د. مارسيو نونيز (رئيس الجلسات) ود. ماريا لويزا مونيوز",k:"past"},
+  {d:"15–16",m:"أكتوبر 2026",t:"الندوة الأوروبية الثانية لتناسل الخيول (ESER)",w:"بروج، بلجيكا",by:"د. مارسيو نونيز ود. ماريا لويزا مونيوز",k:"past"},
+  {d:"10",m:"أكتوبر 2026",t:"المؤتمر البيطري السعودي الثاني: «تحديات الفرس المستقبِلة في الشرق الأوسط»",w:"الرياض، المملكة العربية السعودية",by:"د. ماريا لويزا مونيوز",k:"past"},
+  {d:"",m:"2026",t:"دورة نقل أجنة الخيول · ETRU، جامعة Southern Illinois",w:"كاربونديل، إلينوي، الولايات المتحدة",by:"د. مارسيو نونيز",k:"past"},
+  {d:"22–26",m:"يونيو 2026",t:"المؤتمر الدولي العشرون لتناسل الحيوان (ICAR): ملصقان علميان",w:"أوبيهيرو، اليابان",by:"نونيز، مونيوز وآخرون",k:"past"},
+  {d:"4–6",m:"يونيو 2026",t:"الاجتماع العاشر لجمعية ABRAA: محاضرتان وثلاثة ملصقات",w:"إندايياتوبا، ساو باولو، البرازيل",by:"د. مارسيو نونيز",k:"past"},
+  {d:"",m:"2026",t:"مؤتمر GSG دبي البيطري: برامج نقل أجنة الخيول",w:"دبي، الإمارات",by:"د. ماريا لويزا مونيوز",k:"past"},
+  {d:"27",m:"نوفمبر 2025",t:"ندوة عبر الإنترنت: استرداد الأجنة في برامج نقل أجنة الأفراس · UVAS",w:"عبر الإنترنت",by:"د. ماريا لويزا مونيوز",k:"past"},
+  {d:"22",m:"نوفمبر 2025",t:"ملتقى GSG مصر الثالث للتناسل",w:"مصر",by:"د. مارسيو نونيز (منظّم)",k:"past"},
+  {d:"13",m:"أكتوبر 2025",t:"ندوة عبر الإنترنت: التنبؤ بالإباضة وتحفيزها لدى الأفراس · UVAS",w:"عبر الإنترنت",by:"د. مارسيو نونيز",k:"past"},
+  {d:"12–14",m:"فبراير 2025",t:"الندوة الدولية الثامنة لتناسل الفحول (ISSR): ملصق علمي",w:"قرطبة، إسبانيا",by:"نونيز، مونيوز وآخرون",k:"past"},
+  {d:"10–14",m:"يوليو 2023",t:"الندوة الدولية الثالثة عشرة لتناسل الخيول (ISER): ملصق علمي",w:"فوز دو إيغواسو، البرازيل",by:"نونيز، مونيوز وآخرون",k:"past"}
+ ],
+ "lb.p":"مؤتمرات ودورات وزيارات حول العالم، كما يشاركها المستشاران على LinkedIn.",
+ "logbook":[
+  {img:"log-imar",d:"أكتوبر 2026",w:"فيسوزا، البرازيل",t:"IMAR 2026: محور الخيول",p:"تحدّث المستشاران في محور الخيول ضمن الملتقى الدولي الأول لتناسل الحيوان في جامعة فيسوزا الفيدرالية، إلى جانب توم ستاوت وكارولينا هيريرا وإدواردو غاستال وأحمد طيبري وآخرين. وترأّس د. مارسيو برنامج الخيول."},
+  {img:"log-ufv",d:"أكتوبر 2026",w:"فيسوزا، البرازيل",t:"العودة إلى حيث بدأ كل شيء",p:"بعد ثلاثين عامًا من بدء دراسة الطب البيطري في جامعة UFV، عاد د. مارسيو متحدثًا مدعوًا، وقدّم درسًا في تكوّن الجريبات لدى الأفراس تمهيدًا لجلسة التصوير بالموجات فوق الصوتية دوبلر."},
+  {img:"log-eser",d:"15–16 أكتوبر 2026",w:"بروج، بلجيكا",t:"ESER 2026",p:"الندوة الأوروبية لتناسل الخيول: أسبوع من العلم والتواصل والتعلّم مباشرة من الباحثين أصحاب الكتب والأوراق العلمية."},
+  {img:"log-saudi",d:"10 أكتوبر 2026",w:"الرياض، المملكة العربية السعودية",t:"المؤتمر البيطري السعودي",p:"تحدّثت د. ماريا لويزا مونيوز عن تحديات الأفراس المستقبِلة في برامج نقل الأجنة في الشرق الأوسط."},
+  {img:"log-icar",d:"يونيو 2026",w:"أوبيهيرو، اليابان",t:"ملصقان علميان في ICAR 2026",p:"خفّض انتقاء الحيوانات المنوية بالموائع الدقيقة الحمل البكتيري في السائل المنوي وحافظ على الحركة في الجرعات المبرّدة الملوّثة بالبول. أُجري العمل الميداني بالتعاون مع مستشفى البيداء للخيول في مصر."},
+  {img:"log-dubai",d:"2026",w:"دبي، الإمارات",t:"مؤتمر GSG دبي البيطري",p:"شاركت د. ماريا لويزا مونيوز تفاصيل العمل اليومي في برنامج تجاري لنقل أجنة الخيول."},
+  {img:"log-siu",d:"2025",w:"كاربونديل، إلينوي، الولايات المتحدة",t:"تدريس نقل الأجنة في جامعة SIU",p:"شارك المستشاران في تدريس دورة نقل الأجنة في جامعة Southern Illinois مع البروفيسور إدواردو غاستال."},
+  {img:"log-sbs",d:"2025",w:"الولايات المتحدة",t:"يوم في Select Breeders Services",p:"زيارة لأحد أكبر منتجي السائل المنوي المجمّد للفحول في العالم، ومتابعة روتين التجميد مع بول لوميس ود. ديفيد سكوفيلد وفريق SBS."}
+ ],
+ "studies":[
+  {h:"انتقاء الحيوانات المنوية بالموائع الدقيقة",p:"ICAR 2026: خفّضت المعالجة الحمل البكتيري من 5.4×10³ إلى 1.5×10³ وحدة/مل وأبقت الحركة أعلى بعد 24 ساعة عند 5 °م، سواء غُسل الفحل أم لا.",l:"نونيز، مونيوز وآخرون"},
+  {h:"السائل المنوي الملوّث بالبول",p:"ICAR 2026: مع تلوّث بنسبة 33% بالبول انخفضت الحركة التقدمية في العينات غير المعالجة إلى 0.4% خلال 12 ساعة، بينما حافظت العينات المعالجة على 23.5%.",l:"مونيوز، نونيز وآخرون"},
+  {h:"المخففات وانتقاء الحيوانات المنوية",p:"مقالة مراجعة: Semen Extenders and Sperm Selection Techniques in Stallions. Rev Bras Reprod Anim 50(1):58–65، 2026.",l:"نونيز، مونيوز، كارنيرو"},
+  {h:"بروتوكولات تجميد فردية",p:"اختبار وسط الطرد المركزي ومخفف التجميد ومنحنى التبريد لكل فحل على حدة، بدلًا من بروتوكول متوسط واحد.",l:"د. مارسيو نونيز"},
+  {h:"نقل الأجنة والأفراس المستقبِلة",p:"معايير استرداد الأجنة واختيار المستقبِلات وقياس البروجسترون في المزرعة.",l:"د. ماريا لويزا مونيوز"},
+  {h:"تكوّن الجريبات والإباضة",p:"التنبؤ بالإباضة وتحفيزها والتصوير بالموجات فوق الصوتية دوبلر لجريبات الفرس.",l:"د. مارسيو نونيز"}
+ ],
+ "poster3":{img:"img/poster-icar.jpg",ev:"ICAR العشرون · أوبيهيرو، اليابان، 2026",t:"انتقاء الحيوانات المنوية بالموائع الدقيقة في السائل المنوي للفحول: التلوث البكتيري والتلوث بالبول",a:"Nunes MM, Munhoz ML, Omar Adel I, De Sobral GG, Morrell JM, Carneiro GF",k:"الحمل البكتيري 5.4×10³ ← 1.5×10³ وحدة/مل؛ الحركة التقدمية 23.5% مقابل 0.4% بعد 12 ساعة مع البول."},
+ "ar.p":"ملاحظات عملية ينشرها المستشاران للزملاء على LinkedIn.",
+ "soon":"اقرأ على LinkedIn",
+ "arts":[
+  {c:"الفحول",t:"الاستجابة الفردية للفحول لبروتوكولات تجميد السائل المنوي",p:"إذا استجاب 60% من الفحول بشكل أفضل في كل خطوة من ثلاث خطوات، فإن 21.6% فقط يناسبون الخطوات الثلاث معًا. لماذا يجب بناء البروتوكول لكل فحل على حدة.",r:4,u:LI_MN},
+  {c:"السائل المنوي المجمّد",t:"اعتماد دفعة مجمّدة لا يقتصر على قياس الحركة بعد الإذابة",p:"مخففان، الحركة نفسها، ونمو بكتيري مختلف تمامًا: لماذا تحتاج كل دفعة إلى زراعة بكتيرية.",r:4,u:LI_MM},
+  {c:"المختبر",t:"لماذا نخفف العينة قبل تحليل CASA؟",p:"تحت 50 مليون حيوان منوي/مل يرى النظام كل خلية. وفوق ذلك يُقدَّر التركيز بأقل من حقيقته وتُنتَج قشات أقل.",r:3,u:LI_MN}
+ ],
+ "interests":{session:"جلسة خاصة / مناقشة حالة",mare:"تناسل الأفراس",stallion:"تناسل الفحول",biotech:"التقنيات الحيوية التناسلية",science:"الدعم العلمي",career:"التطوير المهني",lecture:"دعوة لمحاضرة",classes:"دروس ودورات متقدمة",partner:"شراكة أو رعاية"},
+ "collab":{n:"د. برونو تريفيزان",r:"أستاذ متعاون",b:"سحب البويضات OPU وتقنيات التناسل المساعد، والتناسل المتقدم للأفراس، والتدريس الجامعي."},
+ "li":"LinkedIn"
+}};
+for(const l in V4){ const old=I18N[l].mentors; Object.assign(I18N[l],V4[l]); I18N[l].mentorsSample=old.slice(0,3); I18N[l].posters=I18N[l].posters.filter(p=>!/icar/.test(p.img)).concat([V4[l].poster3]); }
+function renderV4(){
+  const T=I18N[lang];
+  $$(".member").forEach((el,i)=>{const m=T.team[i]; if(m&&m.li&&!el.querySelector(".li-link")){el.querySelector(".yrs").insertAdjacentHTML("beforebegin",`<a class="li-link" href="${m.li}" target="_blank" rel="noopener">${SOCIAL_ICONS[0]}<span>${esc(T.li)}</span></a>`);}});
+  $$(".art").forEach((el,i)=>{const a=T.arts[i]; const s=el.querySelector(".foot span:last-child"); if(a&&a.u&&s){s.outerHTML=`<a class="art-link" href="${a.u}recent-activity/all/" target="_blank" rel="noopener">${esc(T.soon)} →</a>`;}});
+  const c=T.collab;
+  const card=(m,tag,cls)=>{const ini=m.n.replace(/^(Prof\.|Dra?\.|أ\.د\.|د\.)\s*/,"").split(" ").map(s=>s[0]).slice(0,2).join("");return `<article class="mentor${cls}"><div class="ph"><span>${esc(ini)}</span></div><div><h3>${esc(m.n)}</h3><div class="cred" style="color:var(--gold);font-size:.82rem;font-weight:600">${esc(m.r)}</div></div><p>${esc(m.b)}</p>${tag}</article>`};
+  $("#mentorGrid").innerHTML=card(c,`<span class="sample collab-tag">${esc(c.r)}</span>`," collab")+T.mentorsSample.map(m=>card(m,`<div class="social">${SOCIAL_ICONS.map(s=>`<span>${s}</span>`).join("")}</div><span class="sample" style="font-size:.64rem">${esc(T["mt.sample"])}</span>`,"")).join("");
+  $$("#logbook .sec-head .sample, #articles .sec-head .sample").forEach(s=>s.style.display="none");
+}
 function renderV3(){
   const T=I18N[lang];
   $("#logList").innerHTML=T.logbook.map((e,i)=>`<article class="log${i%2?" alt":""}"><figure><img src="img/${e.img}.jpg" alt="${esc(e.t)}" loading="lazy"></figure><div class="log-body"><span class="log-when">${esc(e.d)} · ${esc(e.w)}</span><h3>${esc(e.t)}</h3><p>${esc(e.p)}</p></div></article>`).join("");
@@ -1347,6 +1554,7 @@ function render(){
 
   renderV2();
   renderV3();
+  renderV4();
   buildSelects();
   bindInterestLinks();
   if($("#form .done")) showDone();
