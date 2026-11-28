@@ -507,6 +507,15 @@ html[lang="ar"] .poster .ev{letter-spacing:0;font-size:.85rem}
 .art-link{color:inherit;font-weight:600;text-decoration:none}.art-link:hover{text-decoration:underline}
 .mentor.collab{border-color:var(--gold)}.mentor.collab .ph{background:linear-gradient(135deg,#c9a45c,#ecd3a1);color:var(--ink)}
 .collab-tag{border-style:solid!important;color:var(--gold)}.mentor.collab .ph span{color:#0b1530!important;-webkit-text-fill-color:#0b1530;background:none!important}
+
+.vp{position:fixed;inset:0;z-index:300;display:none;align-items:center;justify-content:center;background:rgba(4,8,20,.92);backdrop-filter:blur(6px);padding:16px}
+.vp.open{display:flex}
+.vp-box{position:relative;width:min(1100px,100%);}
+.vp-frame{position:relative;width:100%;aspect-ratio:16/9;background:#000;border-radius:14px;overflow:hidden;box-shadow:0 0 0 1px var(--gold),0 30px 80px rgba(0,0,0,.6)}
+.vp-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.vp-cap{margin-top:12px;color:#e8e2d6;font-size:.95rem;text-align:center}
+.vp-x{position:absolute;top:-46px;inset-inline-end:0;width:38px;height:38px;border-radius:50%;border:1px solid var(--gold);background:transparent;color:var(--gold);font-size:22px;line-height:1;cursor:pointer}
+.vp-x:hover{background:var(--gold);color:#0b1530}
 </style>
 </head>
 <body>
@@ -1473,6 +1482,25 @@ ar:{
  "li":"LinkedIn"
 }};
 for(const l in V4){ const old=I18N[l].mentors; Object.assign(I18N[l],V4[l]); I18N[l].mentorsSample=old.slice(0,3); I18N[l].posters=I18N[l].posters.filter(p=>!/icar/.test(p.img)).concat([V4[l].poster3]); }
+
+/* v7: lectures play inside the page */
+const YT_UPLOADS="UUKIELuPpB4lfkTslswzt6BA";
+const LEC_IDS=["","","","",""]; // fill with the 11-character YouTube IDs, in lecture order
+function openVideo(i){
+  const T=I18N[lang]; const l=T.lecs[i]||{}; const id=LEC_IDS[i];
+  let vp=document.getElementById("vp");
+  if(!vp){document.body.insertAdjacentHTML("beforeend",`<div class="vp" id="vp" role="dialog" aria-modal="true"><div class="vp-box"><button type="button" class="vp-x" aria-label="Close">×</button><div class="vp-frame"></div><div class="vp-cap"></div></div></div>`);vp=document.getElementById("vp");
+    vp.addEventListener("click",e=>{if(e.target===vp||e.target.closest(".vp-x"))closeVideo();});
+    document.addEventListener("keydown",e=>{if(e.key==="Escape"&&vp.classList.contains("open"))closeVideo();});}
+  const src=id?`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&modestbranding=1`:`https://www.youtube-nocookie.com/embed/videoseries?list=${YT_UPLOADS}&autoplay=1&rel=0&modestbranding=1`;
+  vp.querySelector(".vp-frame").innerHTML=`<iframe src="${src}" title="${esc(l.t||"")}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+  vp.querySelector(".vp-cap").textContent=(l.t||"")+(l.by?" · "+l.by:"");
+  vp.classList.add("open"); document.documentElement.style.overflow="hidden";
+}
+function closeVideo(){const vp=document.getElementById("vp"); if(!vp)return; vp.classList.remove("open"); vp.querySelector(".vp-frame").innerHTML=""; document.documentElement.style.overflow="";}
+function renderV7(){
+  $$(".lec").forEach((el,i)=>{const a=el.querySelector(".go"); if(!a)return; a.removeAttribute("target"); a.href=LEC_IDS[i]?`https://www.youtube.com/watch?v=${LEC_IDS[i]}`:"#lectures"; a.onclick=e=>{e.preventDefault();openVideo(i);}; el.style.cursor="pointer"; el.onclick=e=>{if(!e.target.closest("a"))openVideo(i);};});
+}
 function renderV4(){
   const T=I18N[lang];
   $$(".member").forEach((el,i)=>{const m=T.team[i]; if(m&&m.li&&!el.querySelector(".li-link")){el.querySelector(".yrs").insertAdjacentHTML("beforebegin",`<a class="li-link" href="${m.li}" target="_blank" rel="noopener">${SOCIAL_ICONS[0]}<span>${esc(T.li)}</span></a>`);}});
@@ -1560,6 +1588,7 @@ function render(){
   renderV2();
   renderV3();
   renderV4();
+  renderV7();
   buildSelects();
   bindInterestLinks();
   if($("#form .done")) showDone();
